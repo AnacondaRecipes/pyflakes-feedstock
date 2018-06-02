@@ -27,7 +27,11 @@ requirements:
 
 test:
   imports:
-    - {{ name }}
+    - pyflakes
+    - pyflakes.scripts
+    - pyflakes.test
+  commands:
+    - pyflakes --help
 
 about:
   home: https://github.com/PyCQA/pyflakes
