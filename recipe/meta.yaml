@@ -21,6 +21,8 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python
 
@@ -28,11 +30,13 @@ test:
   imports:
     - pyflakes
     - pyflakes.scripts
+    - pyflakes.test
+  requires:
+    - pip
+    - python <3.10
   commands:
     - pip check
     - pyflakes --help
-  requires:
-    - pip
 
 
 about:
