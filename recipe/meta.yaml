@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<38]
+  skip: True  # [py<36]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - pyflakes = pyflakes.api:main
@@ -50,8 +50,8 @@ about:
     the source file, not importing it, so it is safe to use on modules with side
     effects. It is also much faster.
   dev_url: https://github.com/PyCQA/pyflakes
-  doc_url: https://pypi.python.org/pypi/pyflakes
-  doc_source_url: https://github.com/PyCQA/pyflakes/blob/master/README.rst
+  doc_url: https://pypi.org/project/pyflakes/
+  doc_source_url: https://github.com/PyCQA/pyflakes/blob/main/README.rst
 
 extra:
   recipe-maintainers:
