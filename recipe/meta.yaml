@@ -1,5 +1,5 @@
 {% set name = "pyflakes" %}
-{% set version = "2.4.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 05a85c2872edf37a4ed30b0cce2f6093e1d0581f8c19d7393122da7e25b2b24c
+  sha256: ec8b276a6b60bd80defed25add7e439881c19e64850afd9b346283d4165fd0fd
 
 build:
   number: 0
-  noarch: python
+  skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - pyflakes = pyflakes.api:main
@@ -33,7 +33,6 @@ test:
     - pyflakes.test
   requires:
     - pip
-    - python <3.10
   commands:
     - pip check
     - pyflakes --help
