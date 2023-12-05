@@ -43,7 +43,6 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  license_url: https://github.com/PyCQA/pyflakes/blob/main/LICENSE
   summary: Pyflakes analyzes programs and detects various errors.
   description: |
     Pyflakes analyzes programs and detects various errors. It works by parsing
@@ -51,7 +50,6 @@ about:
     effects. It is also much faster.
   dev_url: https://github.com/PyCQA/pyflakes
   doc_url: https://pypi.org/project/pyflakes/
-  doc_source_url: https://github.com/PyCQA/pyflakes/blob/main/README.rst
 
 extra:
   recipe-maintainers:
