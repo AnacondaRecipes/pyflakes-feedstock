@@ -28,8 +28,15 @@ requirements:
 test:
   imports:
     - pyflakes
+    - pyflakes.api
+    - pyflakes.checker
+    - pyflakes.messages
+    - pyflakes.reporter
     - pyflakes.scripts
-    - pyflakes.test
+    - pyflakes.test.harness
+    - pyflakes.test.test_imports
+    - pyflakes.test.test_other
+    - pyflakes.test.test_undefined_names
   requires:
     - pip
   commands:
