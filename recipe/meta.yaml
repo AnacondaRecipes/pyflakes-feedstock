@@ -1,21 +1,20 @@
 {% set name = "pyflakes" %}
-{% set version = "3.2.0" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b24f96fafb7d2ab0ec5075b7350b3d2d2218eab42003821c06344973d3ea2f58
 
 build:
   number: 0
-  skip: True  # [py<38]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - pyflakes = pyflakes.api:main
-
 
 requirements:
   host:
@@ -36,7 +35,6 @@ test:
   commands:
     - pip check
     - pyflakes --help
-
 
 about:
   home: https://github.com/PyCQA/pyflakes
