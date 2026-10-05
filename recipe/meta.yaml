@@ -1,17 +1,17 @@
 {% set name = "pyflakes" %}
-{% set version = "3.4.0" %}
+{% set version = "4.0.2" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b24f96fafb7d2ab0ec5075b7350b3d2d2218eab42003821c06344973d3ea2f58
+  sha256: dcf9cfcece3d9dacc66b7dd2fa217c1a1b79e3075bf488909c15e0857203fd24
 
 build:
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - pyflakes = pyflakes.api:main
@@ -39,9 +39,11 @@ test:
     - pyflakes.test.test_undefined_names
   requires:
     - pip
+    - pytest
   commands:
     - pip check
     - pyflakes --help
+    - pytest --pyargs pyflakes.test -v
 
 about:
   home: https://github.com/PyCQA/pyflakes
